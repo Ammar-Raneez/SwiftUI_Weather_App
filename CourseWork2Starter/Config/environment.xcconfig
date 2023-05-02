@@ -1,0 +1,10 @@
+//
+//  environment.xcconfig
+//  CourseWork2Starter
+//
+//  Created by Ammar on 2023-05-01.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+OPEN_WEATHER_MAP_APP_ID=afcb27658f65af5d2be858c6f8f81d3f
