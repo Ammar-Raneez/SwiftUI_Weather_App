@@ -54,9 +54,6 @@ struct SearchView: View {
         .alert(isPresented: $isLocationInvalid) {
             Alert(title: Text("Invalid location"),message: Text("We could not detect your specified location, please ensure that there aren't any spelling errors or that the location exists."), dismissButton: .default(Text("Ok")))
         }
-        .alert(item: $weatherModelData.alertItem) { alertItem in
-            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
-        }
     }
 }
 

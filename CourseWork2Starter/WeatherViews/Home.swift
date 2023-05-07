@@ -11,8 +11,8 @@ import CoreLocation
 struct Home: View {
     
     @EnvironmentObject var weatherModelData: WeatherModelData
-    @State var isSearchOpen: Bool = false
-    @State var userLocation: String = ""
+    @State var isSearchOpen = false
+    @State var userLocation = ""
     
     var body: some View {
         ZStack {
@@ -84,6 +84,14 @@ struct Home: View {
                 }
                 .alert(item: $weatherModelData.alertItem) { alertItem in
                     Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+                }
+            }
+            if weatherModelData.isWeatherLoading {
+                ZStack {
+                    Color(.white)
+                        .opacity(0.3)
+                        .ignoresSafeArea()
+                    FetchingData(information: "Fetching Weather Data")
                 }
             }
         }

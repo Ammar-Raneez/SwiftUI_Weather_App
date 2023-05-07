@@ -11,17 +11,20 @@ import SwiftUI
 class WeatherModelData: ObservableObject {
 
     @Published var forecast: Forecast?
-    @Published var userLocation: String = ""
+    @Published var userLocation = ""
     @Published var alertItem: AlertItem?
+    @Published var isWeatherLoading = false
 
-    @AppStorage("unit") var unit: Unit = Unit.celsius
+    @AppStorage("unit") var unit = Unit.celsius
 
     init() {
         self.forecast = load("london.json")
     }
 
     func loadData(lat: Double, lon: Double) async throws -> Forecast {
+        isWeatherLoading = true
         guard let APP_ID = Bundle.main.infoDictionary?["OPEN_WEATHER_MAP_APP_ID"] as? String else {
+            isWeatherLoading = false
             alertItem = AlertContext.invalidResponse
             fatalError("Could not load OPEN_WEATHER_MAP_APP_ID from environment")
         }
@@ -38,8 +41,10 @@ class WeatherModelData: ObservableObject {
                 self.forecast = forecastData
             }
             
+            isWeatherLoading = false
             return forecastData
         } catch {
+            isWeatherLoading = false
             alertItem = AlertContext.invalidResponse
             print("Error loading data one call data from Open Weather Map: \(error.localizedDescription)")
             throw error
