@@ -5,12 +5,14 @@
 //  Created by G Lukka.
 //
 
-import Foundation
+import SwiftUI
 
 class WeatherModelData: ObservableObject {
 
     @Published var forecast: Forecast?
     @Published var userLocation: String = ""
+
+    @AppStorage("unit") var unit: Unit = Unit.celsius
 
     init() {
         self.forecast = load("london.json")
@@ -59,5 +61,14 @@ class WeatherModelData: ObservableObject {
         } catch {
             fatalError("Couldn't parse \(filename) as \(Forecast.self):\n\(error)")
         }
+    }
+    
+    func convertMetric(_ temp: Double) -> Double {
+        if unit == Unit.farenheit {
+            let fahrenheit = (temp * 9 / 5) + 32
+            return fahrenheit
+        }
+
+        return temp
     }
 }

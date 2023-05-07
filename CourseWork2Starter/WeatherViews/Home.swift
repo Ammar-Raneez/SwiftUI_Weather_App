@@ -24,7 +24,16 @@ struct Home: View {
             // Multiple Spacers are added in sections to replicate the mock wireframes as close possible
             ScrollView {
                 VStack(spacing: 20) {
-                    Spacer()
+                    HStack {
+                        Spacer()
+                        Picker(selection: $weatherModelData.unit, label: Text("Unit Picker")) {
+                            Text(Unit.celsius.rawValue).tag(Unit.celsius)
+                            Text(Unit.farenheit.rawValue).tag(Unit.farenheit)
+                        }
+                        .pickerStyle(.segmented)
+                        .frame(width: 100)
+                    }
+                    .padding(.horizontal)
 
                     Button {
                         self.isSearchOpen.toggle()
@@ -53,7 +62,7 @@ struct Home: View {
                     
                     // The default gap is larger than the mock wireframes
                     VStack(spacing: 3) {
-                        WeatherDetail(information: "Temp \((Int)(weatherModelData.forecast!.current.temp))ºC")
+                        WeatherDetail(information: "Temp: \((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.current.temp)))\(weatherModelData.unit.rawValue)")
                         WeatherDetail(information: "Humidity: \((Int)(weatherModelData.forecast!.current.humidity))%")
                         WeatherDetail(information: "Pressure: \((Int)(weatherModelData.forecast!.current.pressure)) hPa")
                     }

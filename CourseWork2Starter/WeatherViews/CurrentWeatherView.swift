@@ -23,7 +23,7 @@ struct CurrentWeatherView: View {
                     LocationHeader(userLocation: weatherModelData.userLocation)
                     
                     VStack {
-                        Text("\((Int)(weatherModelData.forecast!.current.temp))ºC")
+                        Text("\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.current.temp)))\(weatherModelData.unit.rawValue)")
                             .padding()
                             .font(.largeTitle)
                         
@@ -35,7 +35,7 @@ struct CurrentWeatherView: View {
                         }
                         .padding()
                         
-                        Text("Feels Like: \((Int)(weatherModelData.forecast!.current.feelsLike))ºC")
+                        Text("Feels Like: \((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.current.feelsLike)))\(weatherModelData.unit.rawValue)")
                             .foregroundColor(.black)
                     }
                     .padding()

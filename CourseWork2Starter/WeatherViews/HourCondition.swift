@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HourCondition: View {
     
+    @EnvironmentObject var weatherModelData: WeatherModelData
+
     var current : Current
     
     var body: some View {
@@ -30,7 +32,7 @@ struct HourCondition: View {
             Spacer()
             
             HStack {
-                Text("\((Int)(current.temp))ºC")
+                Text("\((Int)(weatherModelData.convertMetric(current.temp)))\(weatherModelData.unit.rawValue)")
                 Text("\(current.weather[0].weatherDescription.rawValue.capitalized)")
             }
         }.padding()

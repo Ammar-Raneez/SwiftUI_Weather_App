@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DailyView: View {
+    
+    @EnvironmentObject var weatherModelData: WeatherModelData
+
     var day : Daily
    
     var body: some View {
@@ -27,7 +30,7 @@ struct DailyView: View {
             
             Spacer()
 
-            Text("\((Int)(day.temp.max))ºC / \((Int)(day.temp.min))ºC")
+            Text("\((Int)(weatherModelData.convertMetric(day.temp.max)))\(weatherModelData.unit.rawValue) / \((Int)(weatherModelData.convertMetric(day.temp.min)))\(weatherModelData.unit.rawValue)")
         }.padding()
     }
     
