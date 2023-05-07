@@ -82,6 +82,9 @@ struct Home: View {
                         self.weatherModelData.userLocation = self.userLocation
                     }
                 }
+                .alert(item: $weatherModelData.alertItem) { alertItem in
+                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+                }
             }
         }
     }

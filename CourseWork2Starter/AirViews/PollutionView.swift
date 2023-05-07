@@ -73,6 +73,9 @@ struct PollutionView: View {
                         try await self.airModelData.loadAirPollution(lat: weatherModelData.forecast!.lat, lon: weatherModelData.forecast!.lon)
                     }
                 }
+                alert(item: $airModelData.alertItem) { alertItem in
+                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+                }
                 .foregroundColor(.black)
                 .shadow(color: .black,  radius: 0.5)
             }

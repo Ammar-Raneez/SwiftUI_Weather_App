@@ -7,30 +7,33 @@
 
 import Foundation
 
+@MainActor
 class AirModelData: ObservableObject {
     
     @Published var pollution: Pollution?
-    
+    @Published var alertItem: AlertItem?
     
     init() {}
     
     func loadAirPollution(lat: Double, lon: Double) async throws {
         guard let APP_ID = Bundle.main.infoDictionary?["OPEN_WEATHER_MAP_APP_ID"] as? String else {
+            alertItem = AlertContext.invalidResponse
             fatalError("Could not load OPEN_WEATHER_MAP_APP_ID from environment")
         }
 
         let url = URL(string: "https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=\(lat)&lon=\(lon)&units=metric&appid=\(APP_ID)")
         
         let session = URLSession(configuration: .default)
-        
-        let (data, _) = try await session.data(from: url!)
-        
+
         do {
+            let (data, _) = try await session.data(from: url!)
             let pollutionData = try JSONDecoder().decode(Pollution.self, from: data)
+
             DispatchQueue.main.async {
                 self.pollution = pollutionData
             }
         } catch {
+            alertItem = AlertContext.invalidResponse
             print("Error loading data air pollution data from Open Weather Map: \(error.localizedDescription)")
             throw error
         }
