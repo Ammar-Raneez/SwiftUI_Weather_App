@@ -23,24 +23,7 @@ struct Home: View {
             
             VStack {
                 VStack {
-                    HStack {
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text(userLocation)
-                                .bold()
-                                .font(.title)
-                            
-                            Text("\(Date(timeIntervalSince1970: TimeInterval(((Int)(weatherModelData.forecast?.current.dt ?? 0)))).formatted(.dateTime.year().hour().month().day()))")
-                                .fontWeight(.light)
-                        }
-                        
-                        Spacer()
-                        
-                        Image(systemName: weatherModelData.currentTimeOfDay == TimeOfDay.morning ? "sunrise.fill" : weatherModelData.currentTimeOfDay == TimeOfDay.afternoon ? "sun.max.fill" : "moon.stars.fill")
-                            .symbolRenderingMode(.multicolor)
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    LocationHeader(weatherModelData: weatherModelData, userLocation: userLocation)
                     
                     HStack {
                         BufferingImage(imageUrl: "https://openweathermap.org/img/wn/\(weatherModelData.forecast!.current.weather[0].icon)@2x.png")
@@ -77,30 +60,27 @@ struct Home: View {
                 
                 Spacer()
                 
-                VStack {
-                    Spacer()
-                    VStack(alignment: .leading, spacing: 20) {
-                        HStack {
-                            WeatherRow(logo: "thermometer", name: "Min temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.min)))\(weatherModelData.unit.rawValue)")
-                            Spacer()
-                            WeatherRow(logo: "thermometer", name: "Max temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.max)))\(weatherModelData.unit.rawValue)")
-                        }
-                        
-                        HStack {
-                            WeatherRow(logo: "tornado", name: "Pressure", value: "\((Int)(weatherModelData.forecast!.current.pressure)) hPa")
-                            Spacer()
-                            WeatherRow(logo: "humidity", name: "Humidity", value: "\((Int)(weatherModelData.forecast!.current.humidity))%")
-                        }
+                VStack(alignment: .leading, spacing: 20) {
+                    HStack {
+                        WeatherRow(logo: "thermometer", name: "Min temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.min)))\(weatherModelData.unit.rawValue)")
+                        Spacer()
+                        WeatherRow(logo: "thermometer", name: "Max temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.max)))\(weatherModelData.unit.rawValue)")
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
-                    .padding(.bottom, 20)
-                    .background(.white)
-                    .cornerRadius(20, corners: [.topLeft, .topRight])
+                    
+                    HStack {
+                        WeatherRow(logo: "tornado", name: "Pressure", value: "\((Int)(weatherModelData.forecast!.current.pressure)) hPa")
+                        Spacer()
+                        WeatherRow(logo: "humidity", name: "Humidity", value: "\((Int)(weatherModelData.forecast!.current.humidity))%")
+                    }
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .padding(.bottom, 20)
+                .background(.white)
+                .cornerRadius(20, corners: [.topLeft, .topRight])
             }
             .foregroundColor(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
-            .onAppear {                
+            .onAppear {
                 Task.init {
                     self.userLocation = await getLocFromLatLong(
                         lat: weatherModelData.forecast!.lat,

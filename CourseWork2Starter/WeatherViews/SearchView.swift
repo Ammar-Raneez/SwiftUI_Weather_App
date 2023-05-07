@@ -20,6 +20,7 @@ struct SearchView: View {
         ZStack {
             Color(hue: 0.656, saturation: 0.787, brightness: 0.354)
                 .ignoresSafeArea()
+                .opacity(0.8)
 
             VStack{
                 TextField("Enter New Location", text: self.$location, onCommit: {

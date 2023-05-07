@@ -1,5 +1,5 @@
 //
-//  WeatherRow.swift
+//  AirQualityRow.swift
 //  CourseWork2Starter
 //
 //  Created by Ammar on 2023-05-08.
@@ -7,20 +7,17 @@
 
 import SwiftUI
 
-struct WeatherRow: View {
+struct AirQualityRow: View {
     var logo: String
     var name: String
     var value: String
-    var storedImage = false
     
     var body: some View {
         HStack(spacing: 20) {
-            Image(systemName: logo)
+            Image(logo)
                 .font(.title2)
                 .frame(width: 20, height: 20)
                 .padding()
-                .background(Color(hue: 1.0, saturation: 0.0, brightness: 0.888))
-                .cornerRadius(50)
             
             VStack(alignment: .leading, spacing: 8) {
                 Text(name)
@@ -34,8 +31,8 @@ struct WeatherRow: View {
     }
 }
 
-struct WeatherRow_Previews: PreviewProvider {
+struct AirQualityRow_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherRow(logo: "thermometer", name: "Feels like", value: "8°")
+        AirQualityRow(logo: "no", name: "Nitrogen Oxide", value: "15")
     }
 }

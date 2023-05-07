@@ -38,6 +38,7 @@
 		A0CFBEA22A0848720086F784 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBEA12A0848720086F784 /* CalendarHelper.swift */; };
 		A0CFBEA52A0849890086F784 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBEA42A0849890086F784 /* TimeOfDay.swift */; };
 		A0CFBEA72A0852810086F784 /* TimeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBEA62A0852800086F784 /* TimeRow.swift */; };
+		A0CFBEAB2A0860EE0086F784 /* AirQualityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBEAA2A0860EE0086F784 /* AirQualityRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		A0CFBEA12A0848720086F784 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		A0CFBEA42A0849890086F784 /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
 		A0CFBEA62A0852800086F784 /* TimeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRow.swift; sourceTree = "<group>"; };
+		A0CFBEAA2A0860EE0086F784 /* AirQualityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				A0CFBE9A2A0826D10086F784 /* FetchingData.swift */,
 				A0CFBE9C2A0835C20086F784 /* WeatherRow.swift */,
 				A0CFBEA62A0852800086F784 /* TimeRow.swift */,
+				A0CFBEAA2A0860EE0086F784 /* AirQualityRow.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				25AE539A29C3CCFE0024DED1 /* HourlyView.swift in Sources */,
 				25AE53A029C3CD150024DED1 /* CurrentWeatherView.swift in Sources */,
 				25AE538E29C3CC7A0024DED1 /* WeatherModelData.swift in Sources */,
+				A0CFBEAB2A0860EE0086F784 /* AirQualityRow.swift in Sources */,
 				A012E8D32A0030EC0047FA6F /* BufferingImage.swift in Sources */,
 				A0CFBE9B2A0826D10086F784 /* FetchingData.swift in Sources */,
 				25AE539C29C3CD080024DED1 /* HourCondition.swift in Sources */,

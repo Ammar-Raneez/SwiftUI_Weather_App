@@ -17,64 +17,83 @@ struct PollutionView: View {
             Image("background")
                 .resizable()
                 .ignoresSafeArea()
-                .opacity(0.5)
+                .opacity(0.3)
             
             ScrollView {
-                VStack(spacing: 20) {
-                    LocationHeader(userLocation: weatherModelData.userLocation)
-                    
+                VStack {
                     VStack {
-                        Text("\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.current.temp)))\(weatherModelData.unit.rawValue)")
-                            .padding()
-                            .font(.largeTitle)
+                        LocationHeader(weatherModelData: weatherModelData)
                         
                         HStack {
-                            BufferingImage(imageUrl: "https://openweathermap.org/img/wn/\(weatherModelData.forecast!.current.weather[0].icon)@2x.png")        
-                            Text(weatherModelData.forecast!.current.weather[0].weatherDescription.rawValue.capitalized)
-                                .font(.title2)
-                                .foregroundColor(.black)
+                            BufferingImage(imageUrl: "https://openweathermap.org/img/wn/\(weatherModelData.forecast!.current.weather[0].icon)@2x.png")
+                            Text("\(weatherModelData.forecast!.current.weather[0].weatherDescription.rawValue)")
                         }
-                        .padding()
                         
-                        Text("Feels Like: \((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.current.feelsLike)))\(weatherModelData.unit.rawValue)")
-                            .foregroundColor(.black)
+                        Spacer()
+                        
+                        Text("\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.current.temp)))\(weatherModelData.unit.rawValue)")
+                            .font(.system(size: 100))
+                            .fontWeight(.bold)
+                            .padding()
+                        
+                        Text("Feels like: \((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.current.feelsLike)))\(weatherModelData.unit.rawValue)")
+                            .font(.system(size: 20))
+                            .fontWeight(.bold)
+                            .padding()
+                        
+                        Picker(selection: $weatherModelData.unit, label: Text("Unit Picker")) {
+                            Text(Unit.celsius.rawValue).tag(Unit.celsius)
+                            Text(Unit.farenheit.rawValue).tag(Unit.farenheit)
+                        }
+                        .pickerStyle(.segmented)
+                        .frame(width: 100)
                     }
                     .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Text("Air Quality Data")
-                        .font(.title)
-                        .fontWeight(.semibold)
+                    Spacer()
                     
                     HStack {
-                        PollutionDetail(
-                            imageName: "so2",
-                            information: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.so2 ?? 0)))"
-                        )
-                        
-                        PollutionDetail(
-                            imageName: "no",
-                            information: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.no ?? 0)))"
-                        )
-                        
-                        PollutionDetail(
-                            imageName: "voc",
-                            information: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.co ?? 0)))"
-                        )
-
-                        PollutionDetail(
-                            imageName: "pm",
-                            information: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.pm10 ?? 0)))"
-                        )
+                        TimeRow(logo: "thermometer", name: "Min temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.min)))\(weatherModelData.unit.rawValue)")
+                            .padding()
+                        TimeRow(logo: "thermometer", name: "Max temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.max)))\(weatherModelData.unit.rawValue)")
+                            .padding()
                     }
-                    .padding(.horizontal)
-                }
-                .onAppear {
-                    Task.init {
-                        try await self.airModelData.loadAirPollution(lat: weatherModelData.forecast!.lat, lon: weatherModelData.forecast!.lon)
+                    
+                    VStack {
+                        Spacer()
+                        VStack(alignment: .leading, spacing: 20) {
+                            Text("Air Quality Data")
+                                .bold()
+                                .padding(.bottom)
+                            
+                            HStack {
+                                AirQualityRow(logo: "so2", name: "Min temp", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.so2 ?? 0)))")
+                                Spacer()
+                                AirQualityRow(logo: "no", name: "Max temp", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.no ?? 0)))")
+                            }
+                            .padding()
+                            
+                            HStack {
+                                AirQualityRow(logo: "voc", name: "Pressure", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.co ?? 0)))")
+                                Spacer()
+                                AirQualityRow(logo: "pm", name: "Humidity", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.pm10 ?? 0)))")
+                            }
+                            .padding()
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                        .padding(.bottom, 20)
+                        .background(.white)
+                        .cornerRadius(20, corners: [.topLeft, .topRight])
                     }
                 }
-                .foregroundColor(.black)
-                .shadow(color: .black,  radius: 0.5)
+            }
+            .foregroundColor(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+            .onAppear {
+                Task.init {
+                    try await self.airModelData.loadAirPollution(lat: weatherModelData.forecast!.lat, lon: weatherModelData.forecast!.lon)
+                }
             }
             if airModelData.isPollutionLoading {
                 ZStack {
