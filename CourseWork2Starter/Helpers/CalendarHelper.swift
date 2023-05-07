@@ -28,6 +28,5 @@ func greetingLogic() -> TimeOfDay {
         greetingText = TimeOfDay.morning
     }
    
-    print(hour, greetingText)
     return greetingText
 }

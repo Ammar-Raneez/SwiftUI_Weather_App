@@ -37,6 +37,7 @@
 		A0CFBEA02A08361C0086F784 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBE9F2A08361C0086F784 /* View+Ext.swift */; };
 		A0CFBEA22A0848720086F784 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBEA12A0848720086F784 /* CalendarHelper.swift */; };
 		A0CFBEA52A0849890086F784 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBEA42A0849890086F784 /* TimeOfDay.swift */; };
+		A0CFBEA72A0852810086F784 /* TimeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBEA62A0852800086F784 /* TimeRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		A0CFBE9F2A08361C0086F784 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		A0CFBEA12A0848720086F784 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		A0CFBEA42A0849890086F784 /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
+		A0CFBEA62A0852800086F784 /* TimeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				A012E8D22A0030EC0047FA6F /* BufferingImage.swift */,
 				A0CFBE9A2A0826D10086F784 /* FetchingData.swift */,
 				A0CFBE9C2A0835C20086F784 /* WeatherRow.swift */,
+				A0CFBEA62A0852800086F784 /* TimeRow.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				25AE538C29C3CC710024DED1 /* WeatherStructures.swift in Sources */,
 				25AE539429C3CCEA0024DED1 /* NavBar.swift in Sources */,
 				A0CFBE932A08152A0086F784 /* Unit.swift in Sources */,
+				A0CFBEA72A0852810086F784 /* TimeRow.swift in Sources */,
 				A0CFBEA22A0848720086F784 /* CalendarHelper.swift in Sources */,
 				A0CFBEA02A08361C0086F784 /* View+Ext.swift in Sources */,
 				A0CFBEA52A0849890086F784 /* TimeOfDay.swift in Sources */,

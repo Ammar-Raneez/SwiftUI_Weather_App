@@ -32,10 +32,10 @@ struct Home: View {
                             Text("\(Date(timeIntervalSince1970: TimeInterval(((Int)(weatherModelData.forecast?.current.dt ?? 0)))).formatted(.dateTime.year().hour().month().day()))")
                                 .fontWeight(.light)
                         }
-
+                        
                         Spacer()
                         
-                        Image(systemName: weatherModelData.currentTimeOfDay == TimeOfDay.morning ? "sunrise.fill" : weatherModelData.currentTimeOfDay == TimeOfDay.afternoon ? "sun.max.fill" : "moon.fill")
+                        Image(systemName: weatherModelData.currentTimeOfDay == TimeOfDay.morning ? "sunrise.fill" : weatherModelData.currentTimeOfDay == TimeOfDay.afternoon ? "sun.max.fill" : "moon.stars.fill")
                             .symbolRenderingMode(.multicolor)
                             .resizable()
                             .frame(width: 50, height: 50)
@@ -123,20 +123,5 @@ struct Home: View {
                 }
             }
         }
-    }
-}
-
-struct WeatherDetail: View {
-    var information: String
-    var font: Font = .title2
-    var shadowRadius: Double = 0.5
-    
-    var body: some View {
-        Text("\(information)")
-            .padding()
-            .font(font)
-            .foregroundColor(.black)
-            .shadow(color: .black, radius: shadowRadius)
-            .multilineTextAlignment(.center)
     }
 }

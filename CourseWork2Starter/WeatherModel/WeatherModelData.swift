@@ -43,7 +43,6 @@ class WeatherModelData: ObservableObject {
                 self.forecast = forecastData
             }
             
-            print(forecastData.current.dt)
             currentTimeOfDay = greetingLogic()
             isWeatherLoading = false
             return forecastData
