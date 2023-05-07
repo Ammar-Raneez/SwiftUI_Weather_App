@@ -10,7 +10,6 @@ import SwiftUI
 struct CurrentWeatherView: View {
     
     @EnvironmentObject var weatherModelData: WeatherModelData
-    @State var userLocation = ""
     
     var body: some View {
         ZStack {
@@ -22,7 +21,7 @@ struct CurrentWeatherView: View {
             ScrollView {
                 VStack {
                     VStack {
-                        LocationHeader(weatherModelData: weatherModelData, userLocation: userLocation)
+                        LocationHeader(weatherModelData: weatherModelData)
                         
                         HStack {
                             BufferingImage(imageUrl: "https://openweathermap.org/img/wn/\(weatherModelData.forecast!.current.weather[0].icon)@2x.png")
@@ -92,6 +91,15 @@ struct CurrentWeatherView: View {
                 }
             }
             .foregroundColor(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+            
+            if weatherModelData.isWeatherLoading {
+                ZStack {
+                    Color(.white)
+                        .opacity(0.3)
+                        .ignoresSafeArea()
+                    FetchingData(information: "Fetching Weather Data")
+                }
+            }
         }
     }
 }

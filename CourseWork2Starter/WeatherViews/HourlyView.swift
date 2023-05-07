@@ -9,26 +9,40 @@ import SwiftUI
 
 struct HourlyView: View {
     
-   @EnvironmentObject var weatherModelData: WeatherModelData
-
+    @EnvironmentObject var weatherModelData: WeatherModelData
+    
     var body: some View {
         ZStack {
             Image("background")
                 .resizable()
                 .ignoresSafeArea()
-
+                .opacity(0.3)
+            
             VStack {
-                Text("\(weatherModelData.userLocation)")
-                    .font(.largeTitle)
-                    .shadow(color: .black, radius: 0.5)
-                
-                List {
-                    ForEach(weatherModelData.forecast!.hourly) { hour in
-                        HourCondition(current: hour)
+                VStack {
+                    LocationHeader(weatherModelData: weatherModelData)
+      
+                    VStack {
+                        // Use a scrollview instead of a list for the customized display
+                        ScrollView {
+                            ForEach(weatherModelData.forecast!.hourly) { hour in
+                                HourCondition(current: hour)
+                            }
+                        }
                     }
                 }
+                .padding()
             }
-            .opacity(0.8)
+            .foregroundColor(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+            
+            if weatherModelData.isWeatherLoading {
+                ZStack {
+                    Color(.white)
+                        .opacity(0.3)
+                        .ignoresSafeArea()
+                    FetchingData(information: "Fetching Weather Data")
+                }
+            }
         }
     }
 }

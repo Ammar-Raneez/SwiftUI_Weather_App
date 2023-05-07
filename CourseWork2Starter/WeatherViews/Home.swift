@@ -29,9 +29,7 @@ struct Home: View {
                         BufferingImage(imageUrl: "https://openweathermap.org/img/wn/\(weatherModelData.forecast!.current.weather[0].icon)@2x.png")
                         Text("\(weatherModelData.forecast!.current.weather[0].weatherDescription.rawValue)")
                     }
-                    
-                    Spacer()
-                    
+                                        
                     Text("\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.current.temp)))\(weatherModelData.unit.rawValue)")
                         .font(.system(size: 100))
                         .fontWeight(.bold)

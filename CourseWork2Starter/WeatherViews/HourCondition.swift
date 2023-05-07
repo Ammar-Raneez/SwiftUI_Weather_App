@@ -15,7 +15,9 @@ struct HourCondition: View {
     
     var body: some View {
         HStack {
-            VStack {
+            Spacer()
+
+            VStack(alignment: .leading) {
                 Text(Date(timeIntervalSince1970: TimeInterval(((Int)(current.dt))))
                     .formatted(.dateTime.hour()))
                     .fontWeight(.semibold)
@@ -26,16 +28,21 @@ struct HourCondition: View {
             }
             
             Spacer()
-            
+
             BufferingImage(imageUrl: "https://openweathermap.org/img/wn/\(current.weather[0].icon)@2x.png")
             
             Spacer()
-            
+                    
             HStack {
                 Text("\((Int)(weatherModelData.convertMetric(current.temp)))\(weatherModelData.unit.rawValue)")
                 Text("\(current.weather[0].weatherDescription.rawValue.capitalized)")
             }
-        }.padding()
+            
+            Spacer()
+        }
+        .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354).opacity(0.1))
+        .cornerRadius(12)
+        .padding(.vertical, 5)
     }
 }
 

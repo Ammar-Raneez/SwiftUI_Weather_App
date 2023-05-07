@@ -18,24 +18,25 @@ struct NavBar: View {
 
             CurrentWeatherView()
                 .tabItem {
-                    Label("WeatherNow", systemImage: "sun.max.fill")
+                    Label("Weather Now", systemImage: "sun.max.fill")
                 }
 
             HourlyView()
                 .tabItem{
-                    Label("HourlyView", systemImage: "clock.fill")
+                    Label("Hourly View", systemImage: "clock.fill")
                 }
 
             ForecastView()
                 .tabItem {
-                    Label("ForecastView", systemImage: "calendar")
+                    Label("Forecast View", systemImage: "calendar")
                 }
 
             PollutionView()
                 .tabItem {
-                    Label("PollutionView", systemImage: "aqi.high")
+                    Label("Pollution View", systemImage: "aqi.high")
                 }
         }
+        .tint(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
         .onAppear {
             UITabBar.appearance().isTranslucent = false
         }

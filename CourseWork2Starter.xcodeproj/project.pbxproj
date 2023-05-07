@@ -65,7 +65,6 @@
 		A012E8CE29FFFDC70047FA6F /* AirStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirStructures.swift; sourceTree = "<group>"; };
 		A012E8D02A0030360047FA6F /* LocationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHeader.swift; sourceTree = "<group>"; };
 		A012E8D22A0030EC0047FA6F /* BufferingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferingImage.swift; sourceTree = "<group>"; };
-		A012E8D52A0037490047FA6F /* environment.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = environment.xcconfig; sourceTree = "<group>"; };
 		A012E8D62A0037C40047FA6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A0CFBE922A08152A0086F784 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		A0CFBE962A081D420086F784 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -188,7 +187,6 @@
 		A012E8D42A0037380047FA6F /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				A012E8D52A0037490047FA6F /* environment.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -343,7 +341,6 @@
 /* Begin XCBuildConfiguration section */
 		25AE537D29C3CB4D0024DED1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A012E8D52A0037490047FA6F /* environment.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

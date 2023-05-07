@@ -19,7 +19,7 @@ struct DailyView: View {
 
             Spacer()
             
-            VStack {
+            VStack(alignment: .leading) {
                 Text("\(day.weather[0].weatherDescription.rawValue)")
                     .fontWeight(.semibold)
 
@@ -31,9 +31,14 @@ struct DailyView: View {
             Spacer()
 
             Text("\((Int)(weatherModelData.convertMetric(day.temp.max)))\(weatherModelData.unit.rawValue) / \((Int)(weatherModelData.convertMetric(day.temp.min)))\(weatherModelData.unit.rawValue)")
-        }.padding()
+            
+            // Push the values towards the center
+            Spacer()
+        }
+        .background(.white.opacity(0.3))
+        .cornerRadius(12)
+        .padding(.vertical, 5)
     }
-    
 }
 
 struct DailyView_Previews: PreviewProvider {
