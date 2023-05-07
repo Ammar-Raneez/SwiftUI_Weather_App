@@ -19,73 +19,101 @@ struct Home: View {
             Image("background2")
                 .resizable()
                 .ignoresSafeArea()
-                .opacity(0.8)
+                .opacity(0.6)
             
-            // Multiple Spacers are added in sections to replicate the mock wireframes as close possible
-            ScrollView {
-                VStack(spacing: 20) {
+            VStack {
+                VStack {
                     HStack {
-                        Spacer()
-                        Picker(selection: $weatherModelData.unit, label: Text("Unit Picker")) {
-                            Text(Unit.celsius.rawValue).tag(Unit.celsius)
-                            Text(Unit.farenheit.rawValue).tag(Unit.farenheit)
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(userLocation)
+                                .bold()
+                                .font(.title)
+                            
+                            Text("\(Date(timeIntervalSince1970: TimeInterval(((Int)(weatherModelData.forecast?.current.dt ?? 0)))).formatted(.dateTime.year().hour().month().day()))")
+                                .fontWeight(.light)
                         }
-                        .pickerStyle(.segmented)
-                        .frame(width: 100)
-                    }
-                    .padding(.horizontal)
 
+                        Spacer()
+                        
+                        Image(systemName: weatherModelData.currentTimeOfDay == TimeOfDay.morning ? "sunrise.fill" : weatherModelData.currentTimeOfDay == TimeOfDay.afternoon ? "sun.max.fill" : "moon.fill")
+                            .symbolRenderingMode(.multicolor)
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    HStack {
+                        BufferingImage(imageUrl: "https://openweathermap.org/img/wn/\(weatherModelData.forecast!.current.weather[0].icon)@2x.png")
+                        Text("\(weatherModelData.forecast!.current.weather[0].weatherDescription.rawValue)")
+                    }
+                    
+                    Spacer()
+                    
+                    Text("\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.current.temp)))\(weatherModelData.unit.rawValue)")
+                        .font(.system(size: 100))
+                        .fontWeight(.bold)
+                        .padding()
+                    
                     Button {
                         self.isSearchOpen.toggle()
                     } label: {
                         Text("Change Location")
-                            .font(.largeTitle)
                             .fontWeight(.semibold)
+                            .font(.largeTitle)
+                            .foregroundColor(.blue)
                     }
                     .sheet(isPresented: $isSearchOpen) {
                         SearchView(isSearchOpen: $isSearchOpen, userLocation: $userLocation)
                     }
-                    .padding()
-                    
-                    Spacer()
-                    Spacer()
-                    
-                    // The default gap is larger than the mock wireframes
-                    VStack(spacing: 3) {
-                        WeatherDetail(information: userLocation, font: .title)
-                        WeatherDetail(information: Date(timeIntervalSince1970: TimeInterval(((Int)(weatherModelData.forecast?.current.dt ?? 0))))
-                            .formatted(.dateTime.year().hour().month().day()), font: .largeTitle, shadowRadius: 1)
+                    Picker(selection: $weatherModelData.unit, label: Text("Unit Picker")) {
+                        Text(Unit.celsius.rawValue).tag(Unit.celsius)
+                        Text(Unit.farenheit.rawValue).tag(Unit.farenheit)
                     }
-                    
-                    Spacer()
-                    Spacer()
-                    
-                    // The default gap is larger than the mock wireframes
-                    VStack(spacing: 3) {
-                        WeatherDetail(information: "Temp: \((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.current.temp)))\(weatherModelData.unit.rawValue)")
-                        WeatherDetail(information: "Humidity: \((Int)(weatherModelData.forecast!.current.humidity))%")
-                        WeatherDetail(information: "Pressure: \((Int)(weatherModelData.forecast!.current.pressure)) hPa")
-                    }
-                    
-                    HStack {
-                        BufferingImage(imageUrl: "https://openweathermap.org/img/wn/\(weatherModelData.forecast!.current.weather[0].icon)@2x.png")
-                        WeatherDetail(information: "\(weatherModelData.forecast!.current.weather[0].weatherDescription.rawValue)")
-                    }
+                    .pickerStyle(.segmented)
+                    .frame(width: 100)
                 }
-                .onAppear {
-                    Task.init {
-                        self.userLocation = await getLocFromLatLong(
-                            lat: weatherModelData.forecast!.lat,
-                            lon: weatherModelData.forecast!.lon
-                        )
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Spacer()
+                
+                VStack {
+                    Spacer()
+                    VStack(alignment: .leading, spacing: 20) {
+                        HStack {
+                            WeatherRow(logo: "thermometer", name: "Min temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.min)))\(weatherModelData.unit.rawValue)")
+                            Spacer()
+                            WeatherRow(logo: "thermometer", name: "Max temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.max)))\(weatherModelData.unit.rawValue)")
+                        }
                         
-                        self.weatherModelData.userLocation = self.userLocation
+                        HStack {
+                            WeatherRow(logo: "tornado", name: "Pressure", value: "\((Int)(weatherModelData.forecast!.current.pressure)) hPa")
+                            Spacer()
+                            WeatherRow(logo: "humidity", name: "Humidity", value: "\((Int)(weatherModelData.forecast!.current.humidity))%")
+                        }
                     }
-                }
-                .alert(item: $weatherModelData.alertItem) { alertItem in
-                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                    .padding(.bottom, 20)
+                    .background(.white)
+                    .cornerRadius(20, corners: [.topLeft, .topRight])
                 }
             }
+            .foregroundColor(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+            .onAppear {                
+                Task.init {
+                    self.userLocation = await getLocFromLatLong(
+                        lat: weatherModelData.forecast!.lat,
+                        lon: weatherModelData.forecast!.lon
+                    )
+                    
+                    self.weatherModelData.userLocation = self.userLocation
+                }
+            }
+            .alert(item: $weatherModelData.alertItem) { alertItem in
+                Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+            }
+            
             if weatherModelData.isWeatherLoading {
                 ZStack {
                     Color(.white)

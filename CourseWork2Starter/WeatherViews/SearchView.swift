@@ -18,7 +18,7 @@ struct SearchView: View {
     
     var body: some View {
         ZStack {
-            Color.teal
+            Color(hue: 0.656, saturation: 0.787, brightness: 0.354)
                 .ignoresSafeArea()
 
             VStack{
@@ -43,7 +43,6 @@ struct SearchView: View {
                     }
                 })
                 .padding(10)
-                .shadow(color: .blue, radius: 10)
                 .fixedSize()
                 .font(.custom("Arial", size: 26))
                 .textFieldStyle(RoundedBorderTextFieldStyle())

@@ -33,6 +33,10 @@
 		A0CFBE972A081D420086F784 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBE962A081D420086F784 /* Alert.swift */; };
 		A0CFBE992A081DDF0086F784 /* WAQError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBE982A081DDF0086F784 /* WAQError.swift */; };
 		A0CFBE9B2A0826D10086F784 /* FetchingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBE9A2A0826D10086F784 /* FetchingData.swift */; };
+		A0CFBE9D2A0835C20086F784 /* WeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBE9C2A0835C20086F784 /* WeatherRow.swift */; };
+		A0CFBEA02A08361C0086F784 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBE9F2A08361C0086F784 /* View+Ext.swift */; };
+		A0CFBEA22A0848720086F784 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBEA12A0848720086F784 /* CalendarHelper.swift */; };
+		A0CFBEA52A0849890086F784 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFBEA42A0849890086F784 /* TimeOfDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +69,10 @@
 		A0CFBE962A081D420086F784 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		A0CFBE982A081DDF0086F784 /* WAQError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAQError.swift; sourceTree = "<group>"; };
 		A0CFBE9A2A0826D10086F784 /* FetchingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingData.swift; sourceTree = "<group>"; };
+		A0CFBE9C2A0835C20086F784 /* WeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRow.swift; sourceTree = "<group>"; };
+		A0CFBE9F2A08361C0086F784 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		A0CFBEA12A0848720086F784 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		A0CFBEA42A0849890086F784 /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +159,7 @@
 			children = (
 				25AE538729C3CC580024DED1 /* LocationHelper.swift */,
 				25AE538929C3CC610024DED1 /* WindDirHelper.swift */,
+				A0CFBEA12A0848720086F784 /* CalendarHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -183,11 +192,13 @@
 		A0CFBE942A081C990086F784 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A0CFBEA32A08497F0086F784 /* Enums */,
+				A0CFBE9E2A0836080086F784 /* Extensions */,
 				A0CFBE952A081D1F0086F784 /* Alerts */,
 				A012E8D02A0030360047FA6F /* LocationHeader.swift */,
 				A012E8D22A0030EC0047FA6F /* BufferingImage.swift */,
-				A0CFBE922A08152A0086F784 /* Unit.swift */,
 				A0CFBE9A2A0826D10086F784 /* FetchingData.swift */,
+				A0CFBE9C2A0835C20086F784 /* WeatherRow.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -199,6 +210,23 @@
 				A0CFBE982A081DDF0086F784 /* WAQError.swift */,
 			);
 			path = Alerts;
+			sourceTree = "<group>";
+		};
+		A0CFBE9E2A0836080086F784 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A0CFBE9F2A08361C0086F784 /* View+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A0CFBEA32A08497F0086F784 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				A0CFBE922A08152A0086F784 /* Unit.swift */,
+				A0CFBEA42A0849890086F784 /* TimeOfDay.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,9 +303,13 @@
 				A012E8CF29FFFDC70047FA6F /* AirStructures.swift in Sources */,
 				25AE539829C3CCF90024DED1 /* SearchView.swift in Sources */,
 				25AE539629C3CCF20024DED1 /* DailyView.swift in Sources */,
+				A0CFBE9D2A0835C20086F784 /* WeatherRow.swift in Sources */,
 				25AE538C29C3CC710024DED1 /* WeatherStructures.swift in Sources */,
 				25AE539429C3CCEA0024DED1 /* NavBar.swift in Sources */,
 				A0CFBE932A08152A0086F784 /* Unit.swift in Sources */,
+				A0CFBEA22A0848720086F784 /* CalendarHelper.swift in Sources */,
+				A0CFBEA02A08361C0086F784 /* View+Ext.swift in Sources */,
+				A0CFBEA52A0849890086F784 /* TimeOfDay.swift in Sources */,
 				A0CFBE972A081D420086F784 /* Alert.swift in Sources */,
 				A012E8CD29FFFD7F0047FA6F /* AirModelData.swift in Sources */,
 				A0CFBE992A081DDF0086F784 /* WAQError.swift in Sources */,

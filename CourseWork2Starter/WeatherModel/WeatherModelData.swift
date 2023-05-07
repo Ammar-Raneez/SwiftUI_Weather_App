@@ -14,10 +14,12 @@ class WeatherModelData: ObservableObject {
     @Published var userLocation = ""
     @Published var alertItem: AlertItem?
     @Published var isWeatherLoading = false
+    @Published var currentTimeOfDay = TimeOfDay.morning
 
     @AppStorage("unit") var unit = Unit.celsius
 
     init() {
+        currentTimeOfDay = greetingLogic()
         self.forecast = load("london.json")
     }
 
@@ -41,6 +43,8 @@ class WeatherModelData: ObservableObject {
                 self.forecast = forecastData
             }
             
+            print(forecastData.current.dt)
+            currentTimeOfDay = greetingLogic()
             isWeatherLoading = false
             return forecastData
         } catch {
