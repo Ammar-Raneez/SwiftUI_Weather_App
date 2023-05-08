@@ -42,7 +42,7 @@ struct CurrentWeatherView: View {
                         
                         Picker(selection: $weatherModelData.unit, label: Text("Unit Picker")) {
                             Text(Unit.celsius.rawValue).tag(Unit.celsius)
-                            Text(Unit.farenheit.rawValue).tag(Unit.farenheit)
+                            Text(Unit.fahrenheit.rawValue).tag(Unit.fahrenheit)
                         }
                         .pickerStyle(.segmented)
                         .frame(width: 100)

@@ -76,7 +76,7 @@ class WeatherModelData: ObservableObject {
     }
     
     func convertMetric(_ temp: Double) -> Double {
-        if unit == Unit.farenheit {
+        if unit == Unit.fahrenheit {
             let fahrenheit = (temp * 9 / 5) + 32
             return fahrenheit
         }
