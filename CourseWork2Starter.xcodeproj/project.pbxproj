@@ -343,6 +343,7 @@
 /* Begin XCBuildConfiguration section */
 		25AE537D29C3CB4D0024DED1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0CFBEB02A0874050086F784 /* environment.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -457,6 +458,7 @@
 		};
 		25AE538029C3CB4D0024DED1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0CFBEB02A0874050086F784 /* environment.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -527,7 +529,7 @@
 				25AE537E29C3CB4D0024DED1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		25AE537F29C3CB4D0024DED1 /* Build configuration list for PBXNativeTarget "CourseWork2Starter" */ = {
 			isa = XCConfigurationList;
@@ -536,7 +538,7 @@
 				25AE538129C3CB4D0024DED1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
