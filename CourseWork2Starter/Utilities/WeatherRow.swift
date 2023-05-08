@@ -19,7 +19,7 @@ struct WeatherRow: View {
                 .font(.title2)
                 .frame(width: 20, height: 20)
                 .padding()
-                .background(Color(hue: 1.0, saturation: 0.0, brightness: 0.888))
+                .background(Color.blue.opacity(0.1))
                 .cornerRadius(50)
             
             VStack(alignment: .leading, spacing: 8) {

@@ -53,9 +53,9 @@ struct CurrentWeatherView: View {
                     Spacer()
                     
                     HStack {
-                        TimeRow(logo: "thermometer", name: "Min temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.min)))\(weatherModelData.unit.rawValue)")
+                        TimeRow(logo: "thermometer.low", name: "Min temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.min)))\(weatherModelData.unit.rawValue)")
                             .padding()
-                        TimeRow(logo: "thermometer", name: "Max temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.max)))\(weatherModelData.unit.rawValue)")
+                        TimeRow(logo: "thermometer.high", name: "Max temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.max)))\(weatherModelData.unit.rawValue)")
                             .padding()
                     }
                     

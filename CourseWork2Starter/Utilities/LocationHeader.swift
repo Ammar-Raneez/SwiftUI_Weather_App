@@ -19,7 +19,7 @@ struct LocationHeader: View {
                     .font(.title)
                 
                 Text("\(Date(timeIntervalSince1970: TimeInterval(((Int)(weatherModelData.forecast?.current.dt ?? 0)))).formatted(.dateTime.year().hour().month().day()))")
-                    .fontWeight(.light)
+                    .fontWeight(.semibold)
             }
             
             Spacer()

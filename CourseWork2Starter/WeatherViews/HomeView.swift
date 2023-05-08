@@ -35,23 +35,34 @@ struct HomeView: View {
                         .fontWeight(.bold)
                         .padding()
                     
-                    Button {
-                        self.isSearchOpen.toggle()
-                    } label: {
-                        Text("Change Location")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .foregroundColor(.blue)
-                    }
-                    .sheet(isPresented: $isSearchOpen) {
-                        SearchView(isSearchOpen: $isSearchOpen, userLocation: $userLocation)
-                    }
+                    Text("Feels like: \((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.current.feelsLike)))\(weatherModelData.unit.rawValue)")
+                        .font(.system(size: 20))
+                        .fontWeight(.bold)
+                        .padding()
+                    
                     Picker(selection: $weatherModelData.unit, label: Text("Unit Picker")) {
                         Text(Unit.celsius.rawValue).tag(Unit.celsius)
                         Text(Unit.farenheit.rawValue).tag(Unit.farenheit)
                     }
                     .pickerStyle(.segmented)
                     .frame(width: 100)
+                    
+                    Spacer()
+                    
+                    Button {
+                        self.isSearchOpen.toggle()
+                    } label: {
+                        Text("Change Location")
+                            .font(.title2)
+                            .frame(width: 200, height: 42)
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(.indigo)
+                    .buttonBorderShape(.roundedRectangle(radius: 12))
+                    .sheet(isPresented: $isSearchOpen) {
+                        SearchView(isSearchOpen: $isSearchOpen, userLocation: $userLocation)
+                    }
+                    .padding(.top, 24)
                 }
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -60,9 +71,9 @@ struct HomeView: View {
                 
                 VStack(alignment: .leading, spacing: 20) {
                     HStack {
-                        WeatherRow(logo: "thermometer", name: "Min temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.min)))\(weatherModelData.unit.rawValue)")
+                        WeatherRow(logo: "thermometer.low", name: "Min temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.min)))\(weatherModelData.unit.rawValue)")
                         Spacer()
-                        WeatherRow(logo: "thermometer", name: "Max temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.max)))\(weatherModelData.unit.rawValue)")
+                        WeatherRow(logo: "thermometer.high", name: "Max temp", value: "\((Int)(weatherModelData.convertMetric(weatherModelData.forecast!.daily[0].temp.max)))\(weatherModelData.unit.rawValue)")
                     }
                     
                     HStack {

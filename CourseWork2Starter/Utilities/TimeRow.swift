@@ -11,12 +11,13 @@ struct TimeRow: View {
     var logo: String
     var name: String
     var value: String
+    var iconRenderingModel: SymbolRenderingMode = .multicolor
 
     var body: some View {
         HStack(spacing: 20) {
             Image(systemName: logo)
                 .font(.title2)
-                .symbolRenderingMode(.multicolor)
+                .symbolRenderingMode(iconRenderingModel)
             
             VStack(alignment: .leading, spacing: 8) {
                 Text(name)
