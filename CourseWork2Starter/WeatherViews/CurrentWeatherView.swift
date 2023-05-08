@@ -1,7 +1,7 @@
 //
 //  CurrentWeatherView.swift
 //  Coursework2
-//
+//  Current weether screen - gives a more detailed view of today's weather
 //  Created by G Lukka.
 //
 
@@ -21,7 +21,7 @@ struct CurrentWeatherView: View {
             ScrollView {
                 VStack {
                     VStack {
-                        LocationHeader(weatherModelData: weatherModelData)
+                        LocationHeader()
                         
                         HStack {
                             BufferingImage(imageUrl: "https://openweathermap.org/img/wn/\(weatherModelData.forecast!.current.weather[0].icon)@2x.png")
@@ -97,7 +97,7 @@ struct CurrentWeatherView: View {
                     Color(.white)
                         .opacity(0.3)
                         .ignoresSafeArea()
-                    FetchingData(information: "Fetching Weather Data")
+                    Loader(information: "Fetching Weather Data")
                 }
             }
         }

@@ -1,7 +1,7 @@
 //
 //  LocationHelper.swift
 //  Coursework2
-//
+//  Get location with latitude and longitude
 //  Created by G Lukka.
 //
 

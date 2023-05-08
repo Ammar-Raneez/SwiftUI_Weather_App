@@ -1,7 +1,7 @@
 //
 //  NavBar.swift
 //  Coursework2
-//
+//  Application tab-Navbar
 //  Created by G Lukka.
 //
 
@@ -11,7 +11,7 @@ struct NavBar: View {
     
     var body: some View {
         TabView {
-           Home()
+            HomeView()
                 .tabItem{
                     Label("City", systemImage: "magnifyingglass")
                 }

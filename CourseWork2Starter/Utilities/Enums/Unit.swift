@@ -1,7 +1,7 @@
 //
 //  Unit.swift
-//  CourseWork2Starter
-//
+//  CourseWork2
+//  Facilitates conversion of celsius & farenheit
 //  Created by Ammar on 2023-05-07.
 //
 

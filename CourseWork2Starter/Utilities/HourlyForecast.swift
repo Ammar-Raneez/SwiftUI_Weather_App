@@ -1,13 +1,13 @@
 //
-//  HourCondition.swift
+//  HourlyForecast.swift
 //  Coursework2
-//
+//  Single Hour forecast
 //  Created by G Lukka.
 //
 
 import SwiftUI
 
-struct HourCondition: View {
+struct HourlyForecast: View {
     
     @EnvironmentObject var weatherModelData: WeatherModelData
 
@@ -46,10 +46,10 @@ struct HourCondition: View {
     }
 }
 
-struct HourCondition_Previews: PreviewProvider {
+struct HourlyForecast_Previews: PreviewProvider {
     static var hourly = WeatherModelData().forecast!.hourly
     
     static var previews: some View {
-        HourCondition(current: hourly[0])
+        HourlyForecast(current: hourly[0])
     }
 }

@@ -1,7 +1,7 @@
 //
 //  BufferingImage.swift
-//  CourseWork2Starter
-//
+//  CourseWork2
+//  Loading spinner-asynchronous image
 //  Created by Ammar on 2023-05-01.
 //
 

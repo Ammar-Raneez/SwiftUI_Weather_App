@@ -1,7 +1,7 @@
 //
 //  AirStructures.swift
-//  CourseWork2Starter
-//
+//  CourseWork2
+//  Codable Air Pollution interfaces for API access
 //  Created by Ammar on 2023-03-31.
 //
 

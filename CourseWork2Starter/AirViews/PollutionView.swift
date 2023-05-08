@@ -1,7 +1,7 @@
 //
 //  PollutionView.swift
 //  Coursework2
-//
+//  Pollution screen - displays the pollution and air quality rate for a particular location
 //  Created by G Lukka.
 //
 
@@ -22,7 +22,7 @@ struct PollutionView: View {
             ScrollView {
                 VStack {
                     VStack {
-                        LocationHeader(weatherModelData: weatherModelData)
+                        LocationHeader()
                         
                         HStack {
                             BufferingImage(imageUrl: "https://openweathermap.org/img/wn/\(weatherModelData.forecast!.current.weather[0].icon)@2x.png")
@@ -68,16 +68,16 @@ struct PollutionView: View {
                                 .padding(.bottom)
                             
                             HStack {
-                                AirQualityRow(logo: "so2", name: "Min temp", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.so2 ?? 0)))")
+                                AirQualityRow(logo: "so2", name: "SO2", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.so2 ?? 0)))")
                                 Spacer()
-                                AirQualityRow(logo: "no", name: "Max temp", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.no ?? 0)))")
+                                AirQualityRow(logo: "no", name: "NO", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.no ?? 0)))")
                             }
                             .padding()
                             
                             HStack {
-                                AirQualityRow(logo: "voc", name: "Pressure", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.co ?? 0)))")
+                                AirQualityRow(logo: "voc", name: "CO", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.co ?? 0)))")
                                 Spacer()
-                                AirQualityRow(logo: "pm", name: "Humidity", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.pm10 ?? 0)))")
+                                AirQualityRow(logo: "pm", name: "PM10", value: "\(String(format: "%.2f", (airModelData.pollution?.list[0].components.pm10 ?? 0)))")
                             }
                             .padding()
                         }
@@ -100,7 +100,7 @@ struct PollutionView: View {
                     Color(.white)
                         .opacity(0.3)
                         .ignoresSafeArea()
-                    FetchingData(information: "Fetching Air Pollution Data")
+                    Loader(information: "Fetching Air Pollution Data")
                 }
             }
         }

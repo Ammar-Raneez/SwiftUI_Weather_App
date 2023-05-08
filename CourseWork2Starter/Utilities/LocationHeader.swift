@@ -1,7 +1,7 @@
 //
 //  LocationHeader.swift
-//  CourseWork2Starter
-//
+//  CourseWork2
+//  Reusable component for the app header used for each screen
 //  Created by Ammar on 2023-05-01.
 //
 
@@ -9,8 +9,7 @@ import SwiftUI
 
 struct LocationHeader: View {
 
-    var weatherModelData: WeatherModelData
-    var userLocation: String = ""
+    @EnvironmentObject var weatherModelData: WeatherModelData
     
     var body: some View {
         HStack {
@@ -31,11 +30,5 @@ struct LocationHeader: View {
                 .frame(width: 50, height: 50)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}
-
-struct LocationHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        LocationHeader(weatherModelData: WeatherModelData())
     }
 }

@@ -1,7 +1,7 @@
 //
 //  AirModelData.swift
-//  CourseWork2Starter
-//
+//  CourseWork2
+//  Handles API requests with the required Air Pollution API
 //  Created by Ammar on 2023-05-01.
 //
 

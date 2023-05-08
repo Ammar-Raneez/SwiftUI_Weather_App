@@ -1,7 +1,7 @@
 //
 //  AirQualityRow.swift
-//  CourseWork2Starter
-//
+//  CourseWork2
+//  Air quality detail field
 //  Created by Ammar on 2023-05-08.
 //
 

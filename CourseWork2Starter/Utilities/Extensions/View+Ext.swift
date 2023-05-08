@@ -1,7 +1,7 @@
 //
 //  View+Ext.swift
-//  CourseWork2Starter
-//
+//  CourseWork2
+//  Add border radius for Views, for the bottom sections
 //  Created by Ammar on 2023-05-08.
 //
 

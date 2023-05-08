@@ -1,7 +1,7 @@
 //
 //  SearchView.swift
 //  Coursework2
-//
+//  Search screen - to choose a new location
 //  Created by G Lukka.
 //
 

@@ -1,13 +1,13 @@
 //
 //  CalendarHelper.swift
 //  CourseWork2Starter
-//
+//  Obtain period of day based on time
 //  Created by Ammar on 2023-05-08.
 //
 
 import Foundation
 
-func greetingLogic() -> TimeOfDay {
+func getGreetingText() -> TimeOfDay {
     let hour = Calendar.current.component(.hour, from: Date())
     
     let NEW_DAY = 0

@@ -1,13 +1,13 @@
 //
-//  DailyView.swift
+//  DailyForecast.swift
 //  Coursework2
-//
+//  Single daily forecast
 //  Created by G Lukka.
 //
 
 import SwiftUI
 
-struct DailyView: View {
+struct DailyForecast: View {
     
     @EnvironmentObject var weatherModelData: WeatherModelData
 
@@ -41,10 +41,10 @@ struct DailyView: View {
     }
 }
 
-struct DailyView_Previews: PreviewProvider {
+struct DailyForecastPreviews: PreviewProvider {
     static var day = WeatherModelData().forecast!.daily
     
     static var previews: some View {
-        DailyView(day: day[0])
+        DailyForecast(day: day[0])
     }
 }

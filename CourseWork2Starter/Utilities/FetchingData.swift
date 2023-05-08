@@ -1,13 +1,13 @@
 //
-//  FetchingData.swift
-//  CourseWork2Starter
-//
+//  Loader.swift
+//  CourseWork2
+//  Loading spinner-fetching data
 //  Created by Ammar on 2023-05-08.
 //
 
 import SwiftUI
 
-struct FetchingData: View {
+struct Loader: View {
     var information: String
     
     var body: some View {
@@ -21,8 +21,8 @@ struct FetchingData: View {
     }
 }
 
-struct FetchingData_Previews: PreviewProvider {
+struct Loader_Previews: PreviewProvider {
     static var previews: some View {
-        FetchingData(information: "Fetching Weather")
+        Loader(information: "Fetching Weather")
     }
 }

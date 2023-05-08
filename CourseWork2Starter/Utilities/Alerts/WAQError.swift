@@ -1,7 +1,7 @@
 //
 //  WAQError.swift
-//  CourseWork2Starter
-//
+//  CourseWork2
+//  Alert handlers
 //  Created by Ammar on 2023-05-07.
 //
 

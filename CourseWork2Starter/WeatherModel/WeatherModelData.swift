@@ -1,7 +1,7 @@
 //
 //  WeatherModelData.swift
 //  Coursework2
-//
+//  Handles API requests with the required Weather API
 //  Created by G Lukka.
 //
 
@@ -19,7 +19,7 @@ class WeatherModelData: ObservableObject {
     @AppStorage("unit") var unit = Unit.celsius
 
     init() {
-        currentTimeOfDay = greetingLogic()
+        currentTimeOfDay = getGreetingText()
         self.forecast = load("london.json")
     }
 
@@ -43,7 +43,7 @@ class WeatherModelData: ObservableObject {
                 self.forecast = forecastData
             }
             
-            currentTimeOfDay = greetingLogic()
+            currentTimeOfDay = getGreetingText()
             isWeatherLoading = false
             return forecastData
         } catch {

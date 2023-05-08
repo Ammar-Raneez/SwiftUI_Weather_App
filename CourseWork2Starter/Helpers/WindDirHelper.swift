@@ -1,7 +1,7 @@
 //
 //  WindDirHelper.swift
 //  Coursework2
-//
+//  Get wind direction cardinality
 //  Created by G Lukka.
 //
 

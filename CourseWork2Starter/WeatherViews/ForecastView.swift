@@ -1,7 +1,7 @@
 //
 //  ForecastView.swift
 //  Coursework2
-//
+//  Forecast screen - to view daily forecasts
 //  Created by G Lukka.
 //
 
@@ -20,13 +20,13 @@ struct ForecastView: View {
             
             VStack {
                 VStack {
-                    LocationHeader(weatherModelData: weatherModelData)
+                    LocationHeader()
                     
                     VStack {
                         // Use a scrollview instead of a list for the customized display
                         ScrollView {
                             ForEach(weatherModelData.forecast!.daily) { day in
-                                DailyView(day: day)
+                                DailyForecast(day: day)
                             }
                         }
                     }
@@ -40,7 +40,7 @@ struct ForecastView: View {
                     Color(.white)
                         .opacity(0.3)
                         .ignoresSafeArea()
-                    FetchingData(information: "Fetching Weather Data")
+                    Loader(information: "Fetching Weather Data")
                 }
             }
         }

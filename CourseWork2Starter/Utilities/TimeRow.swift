@@ -1,7 +1,7 @@
 //
 //  TimeRow.swift
-//  CourseWork2Starter
-//
+//  CourseWork2
+//  Time (sunset/sunrise) detail field
 //  Created by Ammar on 2023-05-08.
 //
 

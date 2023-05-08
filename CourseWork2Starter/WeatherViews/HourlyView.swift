@@ -1,7 +1,7 @@
 //
 //  HourlyView.swift
 //  Coursework2
-//
+//  Hourly screen - to view hourly forecasts
 //  Created by G Lukka.
 //
 
@@ -20,13 +20,13 @@ struct HourlyView: View {
             
             VStack {
                 VStack {
-                    LocationHeader(weatherModelData: weatherModelData)
+                    LocationHeader()
       
                     VStack {
                         // Use a scrollview instead of a list for the customized display
                         ScrollView {
                             ForEach(weatherModelData.forecast!.hourly) { hour in
-                                HourCondition(current: hour)
+                                HourlyForecast(current: hour)
                             }
                         }
                     }
@@ -40,7 +40,7 @@ struct HourlyView: View {
                     Color(.white)
                         .opacity(0.3)
                         .ignoresSafeArea()
-                    FetchingData(information: "Fetching Weather Data")
+                    Loader(information: "Fetching Weather Data")
                 }
             }
         }

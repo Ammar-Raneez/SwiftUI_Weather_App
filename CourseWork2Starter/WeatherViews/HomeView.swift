@@ -1,14 +1,14 @@
 //
 //  HomeView.swift
 //  Coursework2
-//
+//  Home screen - gives an overview of the weather of a particular location
 //  Created by G Lukka.
 //
 
 import SwiftUI
 import CoreLocation
 
-struct Home: View {
+struct HomeView: View {
     
     @EnvironmentObject var weatherModelData: WeatherModelData
     @State var isSearchOpen = false
@@ -23,7 +23,7 @@ struct Home: View {
             
             VStack {
                 VStack {
-                    LocationHeader(weatherModelData: weatherModelData, userLocation: userLocation)
+                    LocationHeader()
                     
                     HStack {
                         BufferingImage(imageUrl: "https://openweathermap.org/img/wn/\(weatherModelData.forecast!.current.weather[0].icon)@2x.png")
@@ -97,7 +97,7 @@ struct Home: View {
                     Color(.white)
                         .opacity(0.3)
                         .ignoresSafeArea()
-                    FetchingData(information: "Fetching Weather Data")
+                    Loader(information: "Fetching Weather Data")
                 }
             }
         }

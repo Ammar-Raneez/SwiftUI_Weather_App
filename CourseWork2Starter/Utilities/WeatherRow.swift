@@ -1,7 +1,7 @@
 //
 //  WeatherRow.swift
-//  CourseWork2Starter
-//
+//  CourseWork2
+//  Weather detail field
 //  Created by Ammar on 2023-05-08.
 //
 

@@ -1,7 +1,7 @@
 //
 //  TimeOfDay.swift
-//  CourseWork2Starter
-//
+//  CourseWork2
+//  Facilitates displaying the logo on the top right corner (rendered based on time)
 //  Created by Ammar on 2023-05-08.
 //
 
