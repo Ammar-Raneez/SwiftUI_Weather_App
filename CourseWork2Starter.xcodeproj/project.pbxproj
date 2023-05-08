@@ -76,6 +76,7 @@
 		A0CFBEA42A0849890086F784 /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
 		A0CFBEA62A0852800086F784 /* TimeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRow.swift; sourceTree = "<group>"; };
 		A0CFBEAA2A0860EE0086F784 /* AirQualityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityRow.swift; sourceTree = "<group>"; };
+		A0CFBEB02A0874050086F784 /* environment.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = environment.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +109,9 @@
 		25AE537329C3CB4C0024DED1 /* CourseWork2Starter */ = {
 			isa = PBXGroup;
 			children = (
+				A0CFBEAF2A0873FC0086F784 /* Config */,
 				A0CFBE942A081C990086F784 /* Utilities */,
 				A012E8D62A0037C40047FA6F /* Info.plist */,
-				A012E8D42A0037380047FA6F /* Config */,
 				25AE53A429C3CD9B0024DED1 /* AirModel */,
 				25AE53A129C3CD280024DED1 /* AirViews */,
 				25AE538629C3CC3B0024DED1 /* Helpers */,
@@ -184,13 +185,6 @@
 			path = AirModel;
 			sourceTree = "<group>";
 		};
-		A012E8D42A0037380047FA6F /* Config */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
 		A0CFBE942A081C990086F784 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +225,14 @@
 				A0CFBEA42A0849890086F784 /* TimeOfDay.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		A0CFBEAF2A0873FC0086F784 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				A0CFBEB02A0874050086F784 /* environment.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
